@@ -16,3 +16,5 @@ if middle.button("Emoji button", icon="😃", use_container_width=True):
     middle.markdown("You clicked the emoji button.")
 if right.button("Material button", icon=":material/mood:", use_container_width=True):
     right.markdown("You clicked the Material button.")
+
+st.link_button("Go to gallery", "hhttps://www.youtube.com/watch?v=DYbt8rmJT40")
