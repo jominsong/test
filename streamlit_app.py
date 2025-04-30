@@ -1,3 +1,4 @@
 import streamlit as st
 
-st.text("This is text\n[and more text](that's not a Markdown link).")
+color = st.color_picker("Pick A Color", "#00f200")
+st.write("The current color is", color)
