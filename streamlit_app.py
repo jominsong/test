@@ -1,20 +1,21 @@
+# streamlit_app.py
 import streamlit as st
+from openai import OpenAI
 
-st.button("Reset", type="primary")
-if st.button("Say hello"):
-    st.write("내가 인사 왜 해야 하냐? 니가 해")
-else:
-    st.write("Goodbye")
+api_key= st.text_input("OpenAI API Key", type="password")
+client = OpenAI(api_key=api_key)
 
-if st.button("Aloha", type="tertiary"):
-    st.write("Ciao")
+st.title("OpenAI GPT model")
 
-left, middle, right = st.columns(3)
-if left.button("Plain button", use_container_width=True):
-    left.markdown("You clicked the plain button.")
-if middle.button("Emoji button", icon="😃", use_container_width=True):
-    middle.markdown("You clicked the emoji button.")
-if right.button("Material button", icon=":material/mood:", use_container_width=True):
-    right.markdown("You clicked the Material button.")
+prompt = st.text_area("User prompt")
 
-st.link_button("Go to gallery", "hhttps://www.youtube.com/watch?v=DYbt8rmJT40")
+if st.button("Ask!", disabled=(len(prompt)==0)):
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=prompt
+    )
+
+    st.write(response.output_text)
+===========
+## requirement.txt
+openai
