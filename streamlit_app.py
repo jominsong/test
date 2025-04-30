@@ -1,4 +1,4 @@
-pip install openai flask
+$install openai flask
 
 from flask import Flask, render_template, request
 import openai
