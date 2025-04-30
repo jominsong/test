@@ -6,7 +6,7 @@ import openai
 app = Flask(__name__)
 
 # OpenAI API 키 설정
-openai.api_key = "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"  # 여기에 본인의 키 입력
+openai.api_key = "sk"  # 여기에 본인의 키 입력
 
 @app.route("/", methods=["GET", "POST"])
 def chat():
