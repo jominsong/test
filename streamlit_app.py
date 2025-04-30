@@ -2,7 +2,7 @@ import streamlit as st
 
 st.button("Reset", type="primary")
 if st.button("Say hello"):
-    st.write("Why hello there")
+    st.write("내가 인사 왜 해야 하냐? 니가 해")
 else:
     st.write("Goodbye")
 
