@@ -4,7 +4,7 @@ from openai import OpenAI
 # OpenAI API 키 입력
 api_key = st.text_input("OpenAI API Key", type="password")
 if api_key:
-    cached_key = store_api_key(input_key)
+    cached_key = store_api_key(api_key)
     st.success("API 키가 캐시에 저장되었습니다.")
     st.write(f"저장된 API 키 (디버그용): {cached_key}")
 # 클라이언트 초기화 (API 키가 입력된 경우에만)
