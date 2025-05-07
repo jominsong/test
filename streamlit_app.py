@@ -32,7 +32,7 @@ if input_key:
         st.session_state['OpenAI API Key'] = 'value'
 
     # 키 삭제 예시
-    del st.session_state["key"]
+    del st.session_state["OpenAI API Key"]
 else:
     st.warning("API 키를 입력해주세요.")
 
