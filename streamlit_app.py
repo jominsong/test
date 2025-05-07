@@ -31,6 +31,7 @@ else:
 st.text_input("Your name", key="name")
 st.session_state.name
 
+st.form
 with st.form("my_form"):
     st.write("Inside the form")
     slider_val = st.slider("Form slider")
