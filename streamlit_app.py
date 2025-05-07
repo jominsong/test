@@ -14,7 +14,7 @@ if input_key:
     st.success("API 키가 캐시에 저장되었습니다.")
     st.write(f"저장된 API 키 (디버그용): {cached_key}")
 if input_key:
-    client = OpenAI(input_key=input_key)
+    client = OpenAI(api_key=input_key)
 
     st.title("OpenAI GPT model")
 
