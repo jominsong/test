@@ -14,7 +14,7 @@ if input_key:
     st.success("API 키가 캐시에 저장되었습니다.")
     st.write(f"저장된 API 키 (디버그용): {cached_key}")
     st.text_input("input_key",key=input_key)
-    st.session_state.name
+    st.session_state.input_key
         
     client = OpenAI(api_key=input_key)
 
