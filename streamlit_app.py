@@ -18,7 +18,7 @@ if input_key:
 
     st.title("OpenAI GPT model")
 
-    prompt = st.text_area("User prompt")
+    prompt = st.text_area("원하는 내용을 입력해주세요")
 
     if st.button("Ask!", disabled=(len(prompt) == 0)):
         response = client.responses.create(
@@ -28,8 +28,8 @@ if input_key:
         st.write(response.output_text)
 
     # Session state 예시
-    if 'key' not in st.session_state:
-        st.session_state['key'] = 'value'
+    if 'OpenAI API Key' not in st.session_state:
+        st.session_state['OpenAI API Key'] = 'value'
 
     # 키 삭제 예시
     del st.session_state["key"]
