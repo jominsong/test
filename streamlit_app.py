@@ -27,3 +27,6 @@ if api_key:
     del st.session_state["key"]
 else:
     st.warning("API 키를 입력해주세요.")
+# 위젯을 이용한 session_state 저장
+st.text_input("Your name", key="name")
+st.session_state.name
