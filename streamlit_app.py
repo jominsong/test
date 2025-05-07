@@ -5,9 +5,6 @@ from openai import OpenAI
 def store_api_key(key: str):
     return key
 
-# 세션 상태 초기화
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
 # 🔘 Clear 버튼
 if st.button("Clear Chat"):
