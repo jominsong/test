@@ -20,5 +20,4 @@ if st.button("Ask!", disabled=(len(prompt)==0)):
 
 if 'key' not in st.session_state:
  st.session_state['key'] = 'value'
-
-del st.session_state[key]
+    del st.session_state[key]
