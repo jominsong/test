@@ -13,7 +13,9 @@ if input_key:
     cached_key = store_api_key(input_key)
     st.success("API 키가 캐시에 저장되었습니다.")
     st.write(f"저장된 API 키 (디버그용): {cached_key}")
-if input_key:
+    st.text_input("input_key",key=input_key)
+    st.session_state.name
+        
     client = OpenAI(api_key=input_key)
 
     st.title("OpenAI GPT model")
@@ -35,17 +37,8 @@ if input_key:
     del st.session_state["key"]
 else:
     st.warning("API 키를 입력해주세요.")
-# 위젯을 이용한 session_state 저장
-st.text_input("Your name", key="name")
-st.session_state.name
 
-with st.form("my_form"):
-    st.write("Inside the form")
-    slider_val = st.slider("Form slider")
-    checkbox_val = st.checkbox("Form checkbox")
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        st.write("slider", slider_val, "checkbox", checkbox_val)
+
 
 
 
