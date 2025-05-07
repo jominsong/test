@@ -1,4 +1,3 @@
-pip install --upgrade streamlit
 import streamlit as st
 from openai import OpenAI
 
@@ -13,7 +12,6 @@ if "messages" not in st.session_state:
 # 🔘 Clear 버튼
 if st.button("Clear Chat"):
     st.session_state.messages = []
-    st.experimental_rerun()
 
 # 메시지 출력
 for msg in st.session_state.messages:
