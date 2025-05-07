@@ -1,24 +1,29 @@
-# streamlit_app.py
 import streamlit as st
 from openai import OpenAI
 
-api_key= st.text_input("OpenAI API Key", type="password")
-client = OpenAI(api_key=api_key)
+# OpenAI API 키 입력
+api_key = st.text_input("OpenAI API Key", type="password")
 
-st.title("OpenAI GPT model")
+# 클라이언트 초기화 (API 키가 입력된 경우에만)
+if api_key:
+    client = OpenAI(api_key=api_key)
 
-prompt = st.text_area("User prompt")
+    st.title("OpenAI GPT model")
 
-if st.button("Ask!", disabled=(len(prompt)==0)):
-    response = client.responses.create(
-        model="gpt-4.1-mini",
-        input=prompt
-    )
+    prompt = st.text_area("User prompt")
 
-    st.write(response.output_text)
+    if st.button("Ask!", disabled=(len(prompt) == 0)):
+        response = client.responses.create(
+            model="gpt-4.1-mini",
+            input=prompt
+        )
+        st.write(response.output_text)
 
+    # Session state 예시
+    if 'key' not in st.session_state:
+        st.session_state['key'] = 'value'
 
-if 'key' not in st.session_state:
- st.session_state['key'] = 'value'
-
-del st.session_state[key]
+    # 키 삭제 예시
+    del st.session_state["key"]
+else:
+    st.warning("API 키를 입력해주세요.")
