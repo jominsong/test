@@ -1,13 +1,18 @@
 import streamlit as st
 from openai import OpenAI
 
+# 캐시에 API 키를 저장하는 함수
+@st.cache_data
+def store_api_key(key: str):
+    return key  # 단순히 key를 반환하지만 캐시에 저장됨
+
 # OpenAI API 키 입력
-api_key = st.text_input("OpenAI API Key", type="password")
-if api_key:
-    cached_key = store_api_key(api_key)
+input_key = st.text_input("OpenAI API Key", type="password")
+
+if input_key:
+    cached_key = store_api_key(input_key)
     st.success("API 키가 캐시에 저장되었습니다.")
     st.write(f"저장된 API 키 (디버그용): {cached_key}")
-# 클라이언트 초기화 (API 키가 입력된 경우에만)
 if api_key:
     client = OpenAI(api_key=api_key)
 
@@ -42,7 +47,5 @@ with st.form("my_form"):
     if submitted:
         st.write("slider", slider_val, "checkbox", checkbox_val)
 
-@st.cache_data
-def store_api_key(key: str):
-    return key # 단순히 key를 반환하지만 캐시에 저장됨
+
 
