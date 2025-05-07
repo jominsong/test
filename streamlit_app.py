@@ -36,7 +36,13 @@ if input_key:
 else:
     st.warning("API 키를 입력해주세요.")
 
-
+# 메모리 초기화
+if "messages" not in st.session_state:
+ st.session_state.messages = []
+# 저장한 메시지 사용자/응답 구분해서 보여주기
+for msg in st.session_state.messages:
+ with st.chat_message(msg["role"]):
+ st.markdown(msg["content"])
 
 
 
