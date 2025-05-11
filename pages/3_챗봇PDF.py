@@ -1,3 +1,4 @@
+pip install faiss-cpu PyPDF2 openai tiktoken
 # pages/3_ChatPDF.py
 import streamlit as st
 import faiss
